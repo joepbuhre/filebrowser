@@ -7,7 +7,8 @@ interface file {
     isDir: boolean,
     size: number,
     fullPath: string,
-    type: uploadType
+    type: uploadType,
+    items: item[]
 }
 
 interface item {
@@ -25,9 +26,21 @@ interface item {
 
 type uploadType = "video" | "audio" | "image" | "pdf" | "text" | "blob"
 
-interface req {
-    isDir?: boolean
-}
+type req = {
+    path: string
+    name: string
+    size: number
+    extension: string
+    modified: string
+    mode: number
+    isDir: boolean
+    isSymlink: boolean
+    type: string
+    url: string
+    hash: string
+  }
+  
+
 
 interface uploads {
     [key: string]: upload

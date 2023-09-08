@@ -69,3 +69,7 @@ export function getDownloadURL(share: share, inline = false) {
 
   return createURL("api/public/dl/" + share.hash + share.path, params, false);
 }
+
+export function download(arg0: null, hash: null, token: null, path: any) {
+throw new Error("Function not implemented.");
+}
