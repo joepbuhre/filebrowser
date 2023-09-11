@@ -88,8 +88,8 @@ const layoutStore = useLayoutStore();
 const authStore = useAuthStore();
 const { t } = useI18n();
 
-const $showError = inject("$showError") as TToast;
-const $showSuccess = inject("$showSuccess") as TToast;
+const $showSuccess = inject("$showSuccess") as IToastSuccess;
+const $showError = inject("$showError") as IToastError;
 
 const password = ref<string>("");
 const passwordConf = ref<string>("");
@@ -138,7 +138,7 @@ const updatePassword = async (event: Event) => {
   }
 
   try {
-    const data = { id: authStore.user.id, password: password.value };
+    const data = {...authStore.user, id: authStore.user.id, password: password.value };
     await api.update(data, ["password"]);
     authStore.updateUser(data);
     $showSuccess(t("settings.passwordUpdated"));
@@ -153,6 +153,7 @@ const updateSettings = async (event: Event) => {
     if (authStore.user === null) throw "User is not set";
 
     const data = {
+      ...authStore.user,
       id: authStore.user.id,
       locale: locale.value,
       hideDotfiles: hideDotfiles.value,

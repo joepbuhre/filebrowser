@@ -33,7 +33,7 @@ export const useAuthStore = defineStore("auth", {
       i18n.global.locale = locale;
       this.user = value;
     },
-    updateUser(value: User) {
+    updateUser(value: IUser) {
       if (typeof value !== "object" || !value) return;
       this.setUser(cloneDeep(value));
     },

@@ -6,7 +6,7 @@ import { StatusError } from "@/api/utils";
 
 export function parseToken(token: string) {
   // falsy or malformed jwt will throw InvalidTokenError
-  const data = jwt_decode<{ [key: string]: any; user: User }>(token);
+  const data = jwt_decode<{ [key: string]: any; user: IUser }>(token);
 
   document.cookie = `auth=${token}; Path=/; SameSite=Strict;`;
 

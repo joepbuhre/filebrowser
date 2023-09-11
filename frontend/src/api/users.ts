@@ -23,7 +23,7 @@ export async function create(user: IUser) {
   }
 }
 
-export async function update(user: User, which = ["all"]) {
+export async function update(user: IUser, which = ["all"]) {
   await fetchURL(`/api/users/${user.id}`, {
     method: "PUT",
     body: JSON.stringify({

@@ -169,6 +169,7 @@ const save = async (event: Event) => {
       await api.update(user);
 
       if (user.value.id === authStore.user?.id) {
+        // @ts-ignore
         authStore.setUser({ ...cloneDeep(user) });
       }
 
