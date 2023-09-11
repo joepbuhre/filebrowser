@@ -49,7 +49,7 @@ import { onMounted, ref } from "vue";
 import { useI18n } from "vue-i18n";
 
 const error = ref<any>(null);
-const users = ref<IUser[]>([]);
+const users = ref<User[]>([]);
 
 const layoutStore = useLayoutStore();
 const { t } = useI18n();

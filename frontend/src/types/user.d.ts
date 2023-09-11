@@ -1,20 +1,34 @@
-export interface User {
+type UserKey = keyof IUser;
+
+interface IUser {
   id: number;
+  username: string;
+  password: string;
+  scope: string;
   locale: string;
-  perm: Permissions;
+  lockPassword: boolean;
+  viewMode: string;
+  singleClick: boolean;
+  perm: UserPerm;
+  commands: any[];
+  sorting: UserSorting;
+  rules: any[];
+  hideDotfiles: boolean;
+  dateFormat: boolean;
 }
 
-export interface Permissions {
+interface UserPerm {
   admin: boolean;
-  copy: boolean;
-  create: boolean;
-  delete: boolean;
-  download: boolean;
   execute: boolean;
-  modify: boolean;
-  move: boolean;
+  create: boolean;
   rename: boolean;
+  modify: boolean;
+  delete: boolean;
   share: boolean;
-  shell: boolean;
-  upload: boolean;
+  download: boolean;
+}
+
+interface UserSorting {
+  by: string;
+  asc: boolean;
 }
