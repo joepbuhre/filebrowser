@@ -1,4 +1,3 @@
-import type { IFile } from "@/types";
 import { fetchURL, removePrefix, createURL } from "./utils";
 import { baseURL } from "@/utils/constants";
 

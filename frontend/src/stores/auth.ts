@@ -1,4 +1,3 @@
-import type { User } from "@/types";
 import { defineStore } from "pinia";
 import dayjs from "dayjs";
 import i18n, { detectLocale } from "@/i18n";
@@ -7,7 +6,7 @@ import { cloneDeep } from "lodash-es";
 export const useAuthStore = defineStore("auth", {
   // convert to a function
   state: (): {
-    user: User | null;
+    user: IUser | null;
     jwt: string;
   } => ({
     user: null,
@@ -19,7 +18,7 @@ export const useAuthStore = defineStore("auth", {
   },
   actions: {
     // no context as first argument, use `this` instead
-    setUser(value: User) {
+    setUser(value: IUser) {
       if (value === null) {
         this.user = null;
         return;

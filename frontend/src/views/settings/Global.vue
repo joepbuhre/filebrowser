@@ -239,13 +239,6 @@ import Themes from "@/components/settings/Themes.vue";
 import Errors from "@/views/Errors.vue";
 import { computed, inject, onBeforeUnmount, onMounted, ref } from "vue";
 import { useI18n } from "vue-i18n";
-import type {
-  ISettings,
-  IToastError,
-  IToastSuccess,
-  SettingsCommand,
-  SettingsUnit,
-} from "@/types";
 
 const error = ref<any>(null);
 const originalSettings = ref<ISettings | null>(null);

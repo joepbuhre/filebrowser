@@ -1,4 +1,3 @@
-import type { Share } from "@/types";
 import { fetchURL, fetchJSON, removePrefix, createURL } from "./utils";
 
 export async function list() {
