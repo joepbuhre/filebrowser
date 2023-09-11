@@ -82,12 +82,12 @@ import { useRoute, useRouter } from "vue-router";
 import { useI18n } from "vue-i18n";
 
 const error = ref<any | null>(null);
-const originalUser = ref<IUser | null>(null);
-const user = ref<IUser | null>(null);
+const originalUser = ref<User | null>(null);
+const user = ref<User | null>(null);
 const createUserDir = ref<boolean>(false);
 
-const $showError = inject("$showError") as TToast;
-const $showSuccess = inject("$showSuccess") as TToast;
+const $showError = inject("$showError") as IToastError;
+const $showSuccess = inject("$showSuccess") as IToastSuccess;
 
 const authStore = useAuthStore();
 const layoutStore = useLayoutStore();
@@ -155,7 +155,7 @@ const save = async (event: Event) => {
   if (originalUser.value === null || user.value === null) {
     return false;
   }
-  let newUser: IUser = {
+  let newUser: User = {
     ...originalUser.value,
     ...user.value,
   };

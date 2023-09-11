@@ -1,27 +1,27 @@
-export type ApiMethod = "GET" | "POST" | "PUT" | "DELETE" | "PATCH";
+type ApiMethod = "GET" | "POST" | "PUT" | "DELETE" | "PATCH";
 
-export type ApiContent =
+type ApiContent =
   | Blob
   | File
   | Pick<ReadableStreamDefaultReader<any>, "read">
   | "";
 
-export interface ApiOpts {
+interface ApiOpts {
   method?: ApiMethod;
   headers?: object;
   body?: any;
 }
 
-export interface TusSettings {
+interface TusSettings {
   retryCount: number;
   chunkSize: number;
 }
 
-export type ChecksumAlgs = "md5" | "sha1" | "sha256" | "sha512";
+type ChecksumAlgs = "md5" | "sha1" | "sha256" | "sha512";
 
 type inline = any;
 
-export interface Share {
+interface Share {
   expire: any;
   hash: string;
   path: string;
@@ -33,6 +33,6 @@ interface settings {
   any;
 }
 
-export interface SearchParams {
+interface SearchParams {
   [key: string]: string;
 }
