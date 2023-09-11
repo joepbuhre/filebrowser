@@ -239,6 +239,13 @@ import Themes from "@/components/settings/Themes.vue";
 import Errors from "@/views/Errors.vue";
 import { computed, inject, onBeforeUnmount, onMounted, ref } from "vue";
 import { useI18n } from "vue-i18n";
+import type {
+  ISettings,
+  IToastError,
+  IToastSuccess,
+  SettingsCommand,
+  SettingsUnit,
+} from "@/types";
 
 const error = ref<any>(null);
 const originalSettings = ref<ISettings | null>(null);
@@ -250,8 +257,8 @@ const commandObject = ref<{
 }>({});
 const shellValue = ref<string>("");
 
-const $showError = inject<TToast>("$showError") as TToast;
-const $showSuccess = inject<TToast>("$showSuccess") as TToast;
+const $showSuccess = inject<IToastSuccess>("$showSuccess") as IToastSuccess;
+const $showError = inject<IToastError>("$showError") as IToastError;
 
 const { t } = useI18n();
 
